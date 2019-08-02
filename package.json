@@ -2,6 +2,7 @@
   "name": "til",
   "version": "1.0.0",
   "description": "Today I Learned tool using React as a front-end",
+  "proxy": "http://localhost:5000",
   "scripts": {
     "server": "node til_web.js",
     "start": "react-scripts start",

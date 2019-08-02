@@ -28,10 +28,16 @@ async function getAll(request, response) {
   });
 }
 
-app.post('/facts', addFact);
+app.post('/facts', express.json(), logStuff, addFact);
+
+function logStuff (request, response, next) {
+  console.log("request: " + request.body)
+  next();
+}
 
 async function addFact(request, response) {
-  let result = await store.addFact(request.body.text.trim())
+  console.log(request.body)
+  let result = await store.addFact(request.body.fact)
   let output = {
     status: 'ok',
     id: result.id
